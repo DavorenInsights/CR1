@@ -48,11 +48,11 @@ for idx, item in enumerate(NAV_ITEMS):
 <p style="margin-top:10px; color:#b3ffdd;">{item['desc']}</p>
 </div>
 """,
-            unsafe_allow_html=True,
-        )
+unsafe_allow_html=True,
+)
 
-        if st.button(item["button"], key=f"home_btn_{idx}", use_container_width=True):
-            safe_switch_page(item["page"])
+if st.button(item["button"], key=f"home_btn_{idx}", use_container_width=True):
+safe_switch_page(item["page"])
 
 st.divider()
 st.caption(
