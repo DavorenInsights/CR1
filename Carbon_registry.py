@@ -39,7 +39,7 @@ cols = st.columns(3)
 for idx, item in enumerate(NAV_ITEMS):
     with cols[idx % 3]:
         st.markdown(
-f"""
+            f"""
 <div class="card">
 <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
 <h3 style="margin:0; color:#86ffcf;">{item['label']}</h3>
@@ -48,14 +48,16 @@ f"""
 <p style="margin-top:10px; color:#b3ffdd;">{item['desc']}</p>
 </div>
 """,
-unsafe_allow_html=True,
-)
-if st.button(item["button"], key=f"home_btn_{idx}", use_container_width=True):
-safe_switch_page(item["page"])
+            unsafe_allow_html=True,
+        )
+
+        if st.button(item["button"], key=f"home_btn_{idx}", use_container_width=True):
+            safe_switch_page(item["page"])
 
 st.divider()
 st.caption(
     "Disclaimer: Beta tool for learning and analysis — not audit-ready. "
     "Validate inputs/results against the applicable standard/methodology and verified datasets."
-
+)
 st.caption(f"{APP_TITLE} • {APP_VERSION}")
+
