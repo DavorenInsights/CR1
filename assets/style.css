@@ -1,0 +1,316 @@
+/* ============================================================
+   CARBON REGISTRY â€¢ NEON GLASS THEME (Streamlit)
+   Regenerated for consistency across pages
+   Key fix: DO NOT style .stMarkdown as a card container
+============================================================ */
+
+/* ============================================================
+   GLOBAL VARIABLES
+============================================================ */
+:root {
+    --bg-dark: #020c08;
+    --bg-panel: rgba(5, 20, 10, 0.55);
+    --bg-panel-strong: rgba(5, 20, 10, 0.85);
+
+    --green-neon: #39ff9f;
+    --green-mid: #00b46f;
+    --green-soft: #86ffcf;
+
+    --text-light: #e8fff2;
+    --text-mid: #b3ffdd;
+    --text-dim: rgba(179, 255, 221, 0.75);
+
+    --border: rgba(57, 255, 159, 0.22);
+    --border-strong: rgba(57, 255, 159, 0.35);
+
+    --glow: 0 0 12px rgba(57, 255, 159, 0.45);
+    --shadow: 0 0 22px rgba(0, 255, 138, 0.14);
+
+    --radius: 18px;
+    --radius-sm: 12px;
+    --transition: 0.25s ease-in-out;
+}
+
+/* ============================================================
+   RESET / BASE
+============================================================ */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: var(--bg-dark) !important;
+    font-family: "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+    color: var(--text-light) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--green-soft) !important;
+    letter-spacing: 0.6px;
+    text-shadow: 0 0 8px rgba(57, 255, 159, 0.22);
+}
+
+p, label, span, div {
+    color: var(--text-mid);
+}
+
+/* Keep links readable */
+a {
+    color: var(--green-neon) !important;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================================
+   STREAMLIT APP BACKGROUND
+============================================================ */
+.stApp {
+    background: var(--bg-dark) !important;
+}
+
+/* Main block padding (subtle) */
+main .block-container {
+    padding-top: 1.2rem;
+    padding-bottom: 2.5rem;
+}
+
+/* ============================================================
+   SIDEBAR
+============================================================ */
+section[data-testid="stSidebar"] {
+    background: rgba(5, 20, 10, 0.90) !important;
+    backdrop-filter: blur(12px);
+    border-right: 1px solid rgba(57, 255, 159, 0.14);
+    box-shadow: 4px 0 20px rgba(0, 255, 138, 0.08);
+}
+
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] h4 {
+    color: var(--green-soft) !important;
+}
+
+/* ============================================================
+   INTENTIONAL CARDS / PANELS (USE THESE CLASSES)
+   NOTE: This replaces your old ".stMarkdown as card" behavior.
+============================================================ */
+.glass-box {
+    border-radius: var(--radius);
+    background: rgba(10, 25, 15, 0.45);
+    border: 1px solid var(--border);
+    padding: 22px 22px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(22px) saturate(120%);
+}
+
+.card, .im-card {
+    background: var(--bg-panel);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px) saturate(120%);
+}
+
+/* OPTIONAL: apply card-like styling to Streamlit "containers" ONLY */
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    border-radius: var(--radius);
+}
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.stButton > button,
+.stDownloadButton button,
+button[kind="primary"] {
+    background: var(--green-mid) !important;
+    color: #00150c !important;
+    font-weight: 700 !important;
+    border-radius: var(--radius) !important;
+    border: none !important;
+    box-shadow: var(--glow) !important;
+    transition: var(--transition);
+}
+
+.stButton > button:hover,
+.stDownloadButton button:hover,
+button[kind="primary"]:hover {
+    background: var(--green-neon) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(57, 255, 159, 0.70) !important;
+}
+
+/* Secondary buttons (where streamlit uses "secondary") */
+button[kind="secondary"] {
+    background: rgba(5, 20, 10, 0.45) !important;
+    color: var(--text-light) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: none !important;
+}
+button[kind="secondary"]:hover {
+    border-color: var(--border-strong) !important;
+    box-shadow: var(--glow) !important;
+    transform: translateY(-1px);
+}
+
+/* ============================================================
+   INPUTS / SELECTS / TEXT AREAS
+============================================================ */
+div[data-baseweb="input"] input,
+div[data-baseweb="textarea"] textarea,
+div[data-baseweb="select"] > div {
+    background: rgba(5, 20, 10, 0.55) !important;
+    border: 1px solid rgba(57, 255, 159, 0.26) !important;
+    border-radius: var(--radius) !important;
+    color: var(--text-light) !important;
+}
+
+div[data-baseweb="input"] input:focus,
+div[data-baseweb="textarea"] textarea:focus {
+    border-color: var(--green-neon) !important;
+    box-shadow: var(--glow) !important;
+}
+
+/* Slider label/value text */
+[data-testid="stSlider"] * {
+    color: var(--text-mid) !important;
+}
+
+/* ============================================================
+   METRICS (st.metric)
+============================================================ */
+div[data-testid="metric-container"] {
+    background: rgba(10, 25, 15, 0.40) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    padding: 14px 16px !important;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(14px) saturate(120%);
+}
+div[data-testid="metric-container"] * {
+    color: var(--text-light) !important;
+}
+
+/* ============================================================
+   ALERTS (SUCCESS / INFO / WARNING / ERROR)
+============================================================ */
+.stSuccess, .stInfo, .stWarning, .stError {
+    padding: 12px 18px !important;
+    border-radius: var(--radius) !important;
+    border-left: 4px solid var(--green-neon) !important;
+    background: rgba(0, 255, 138, 0.08) !important;
+    color: var(--green-soft) !important;
+}
+
+/* Make warning/error visually distinct but still on theme */
+.stWarning {
+    border-left-color: rgba(255, 220, 120, 0.95) !important;
+    background: rgba(255, 220, 120, 0.08) !important;
+}
+.stError {
+    border-left-color: rgba(255, 120, 120, 0.95) !important;
+    background: rgba(255, 120, 120, 0.08) !important;
+}
+
+/* ============================================================
+   EXPANDERS
+============================================================ */
+details[data-testid="stExpander"] {
+    background: rgba(10, 25, 15, 0.35) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+details[data-testid="stExpander"] > summary {
+    background: rgba(10, 30, 15, 0.55) !important;
+    color: var(--green-soft) !important;
+    border-radius: var(--radius) !important;
+}
+
+details[data-testid="stExpander"] summary * {
+    color: var(--green-soft) !important;
+}
+
+/* ============================================================
+   TABLES / DATAFRAMES
+============================================================ */
+[data-testid="stDataFrame"] {
+    background: rgba(10, 25, 15, 0.25) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+/* Generic table text */
+table, thead, tbody, tr, th, td {
+    color: var(--text-light) !important;
+    border-color: rgba(57, 255, 159, 0.18) !important;
+}
+
+/* ============================================================
+   TABS
+============================================================ */
+button[data-baseweb="tab"] {
+    color: var(--text-mid) !important;
+}
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: var(--green-neon) !important;
+    text-shadow: 0 0 12px rgba(57, 255, 159, 0.35);
+}
+
+/* ============================================================
+   DIVIDERS / HR
+============================================================ */
+hr, [data-testid="stDivider"] {
+    border: none !important;
+    height: 1px !important;
+    background: linear-gradient(
+        90deg,
+        rgba(57, 255, 159, 0) 0%,
+        rgba(57, 255, 159, 0.55) 50%,
+        rgba(57, 255, 159, 0) 100%
+    ) !important;
+    margin: 22px 0 !important;
+}
+
+/* ============================================================
+   UTILITY CLASSES
+============================================================ */
+.green-glow {
+    text-shadow: 0 0 12px var(--green-neon);
+    color: var(--green-neon) !important;
+    font-weight: 800;
+}
+
+.muted {
+    color: var(--text-dim) !important;
+}
+
+/* Small badge/pill for inline labels */
+.pill-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(57, 255, 159, 0.10);
+    border: 1px solid rgba(57, 255, 159, 0.22);
+    color: var(--text-mid);
+    font-size: 12px;
+    line-height: 1;
+}
+
+
+/* ============================================================
+   FOOTER / MENU (optional)
+============================================================ */
+footer { visibility: hidden !important; }
+#MainMenu { visibility: hidden !important; }
+
+/* ============================================================
+   END OF FILE
+============================================================ */
+
