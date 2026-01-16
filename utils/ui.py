@@ -27,6 +27,14 @@ APP_TAGLINE = "Boundaries → Assumptions → Calculators → Evidence"
 
 NAV_ITEMS = [
     {
+
+        "label": "🧱 Carbon Foundations",
+        "desc": "The thinking layer: boundaries, baselines, assumptions, evidence, MRV maturity.",
+        "button": "Open Foundations",
+        "page": "pages/0_Foundations.py",
+        "badge": "Core",
+    },
+
         "label": "⚖️ Carbon Registry",
         "desc": "Create projects, log activities, and capture boundaries + assumptions.",
         "button": "Open Carbon Registry",
