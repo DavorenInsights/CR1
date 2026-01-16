@@ -33,7 +33,7 @@ NAV_ITEMS = [
         "page": "pages/0_Foundations.py",
         "badge": "Core",
     },
-
+    {
         "label": "⚖️ Carbon Registry",
         "desc": "Create projects, log activities, and capture boundaries + assumptions.",
         "button": "Open Carbon Registry",
