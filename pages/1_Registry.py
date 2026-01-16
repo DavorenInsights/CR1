@@ -144,6 +144,25 @@ def ensure_schema() -> None:
         meta_json TEXT
     );
     """)
+        # NEW: MRV readiness score history (saved from Foundations page)
+    db_exec("""
+    CREATE TABLE IF NOT EXISTS mrv_scores (
+        mrv_id TEXT PRIMARY KEY,
+        project_id TEXT,
+        score_pct REAL NOT NULL,
+        boundary INTEGER NOT NULL,
+        baseline INTEGER NOT NULL,
+        assumptions INTEGER NOT NULL,
+        ef_trace INTEGER NOT NULL,
+        data_quality INTEGER NOT NULL,
+        uncertainty INTEGER NOT NULL,
+        narrative TEXT,
+        meta_json TEXT,
+        created_at TEXT NOT NULL,
+        FOREIGN KEY(project_id) REFERENCES projects(project_id) ON DELETE SET NULL
+    );
+    """)
+
 
 ensure_schema()
 
@@ -228,6 +247,22 @@ def get_project(project_id: str) -> Optional[Dict[str, Any]]:
     if df.empty:
         return None
     return df.iloc[0].to_dict()
+
+def get_latest_mrv(project_id: str) -> Optional[Dict[str, Any]]:
+    df = db_query(
+        """
+        SELECT score_pct, created_at
+        FROM mrv_scores
+        WHERE project_id = ?
+        ORDER BY created_at DESC
+        LIMIT 1
+        """,
+        (project_id,),
+    )
+    if df.empty:
+        return None
+    return df.iloc[0].to_dict()
+
 
 def set_active_project(project_id: Optional[str]) -> None:
     st.session_state.active_project_id = project_id
@@ -346,6 +381,12 @@ with st.sidebar:
     st.write("Schema: OK")
     if DEBUG:
         st.caption("DEBUG mode enabled.")
+        latest = get_latest_mrv(proj["project_id"])
+        if latest:
+            st.divider()
+            st.markdown("### 🧠 MRV Readiness")
+            st.metric("Latest score", f"{float(latest['score_pct']):.0f}%")
+            st.caption(f"As of: {latest['created_at']}")
 
 # ------------------------------------------------------------
 # TOP NAV TABS
