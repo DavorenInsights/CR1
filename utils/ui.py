@@ -27,7 +27,6 @@ APP_TAGLINE = "Boundaries → Assumptions → Calculators → Evidence"
 
 NAV_ITEMS = [
     {
-
         "label": "🧱 Carbon Foundations",
         "desc": "The thinking layer: boundaries, baselines, assumptions, evidence, MRV maturity.",
         "button": "Open Foundations",
